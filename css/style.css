@@ -1,10 +1,8 @@
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 body {
-  margin: 0;
-}
+  margin: 0; }
 
 .container {
   align-items: center;
@@ -12,27 +10,22 @@ body {
   flex-direction: column;
   height: 100vh;
   justify-content: center;
-  width: 100vw;
-}
+  width: 100vw; }
 
 .collection {
   background-color: lightgrey;
   height: 70%;
-  width: 85%;
-}
+  width: 85%; }
 
 form {
   display: flex;
   justify-content: space-between;
-  width: 85%;
-}
+  width: 85%; }
 
 form input {
   height: 50px;
-  width: 70%;
-}
+  width: 70%; }
 
 form button {
   height: 50px;
-  width: 28%;
-}
+  width: 28%; }
