@@ -1,3 +1,6 @@
+$font-size: 1.3em;
+$border-radius: 20px;
+
 * {
   box-sizing: border-box;
 }
@@ -16,9 +19,26 @@ body {
 }
 
 .collection {
+  align-items: flex-start;
   background-color: lightgrey;
+  border-radius: $border-radius;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: $font-size;
   height: 70%;
-  width: 85%;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 90%;
+}
+
+.collection > div {
+  flex-shrink: 0;
+  height: 30px;
+  margin: 0 10px;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 20%;
 }
 
 form {
@@ -28,11 +48,20 @@ form {
 }
 
 form input {
+  border-radius: $border-radius;
+  border-style: solid;
+  font-size: $font-size;
   height: 50px;
+  padding: 10px;
   width: 70%;
 }
 
 form button {
+  background-color: white;
+  border-color: lightblue;
+  border-radius: $border-radius;
+  border-style: solid;
+  font-size: $font-size;
   height: 50px;
   width: 28%;
 }

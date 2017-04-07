@@ -13,9 +13,25 @@ body {
   width: 100vw; }
 
 .collection {
+  align-items: flex-start;
   background-color: lightgrey;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.3em;
   height: 70%;
-  width: 85%; }
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 90%; }
+
+.collection > div {
+  flex-shrink: 0;
+  height: 30px;
+  margin: 0 10px;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 20%; }
 
 form {
   display: flex;
@@ -23,9 +39,18 @@ form {
   width: 85%; }
 
 form input {
+  border-radius: 20px;
+  border-style: solid;
+  font-size: 1.3em;
   height: 50px;
+  padding: 10px;
   width: 70%; }
 
 form button {
+  background-color: white;
+  border-color: lightblue;
+  border-radius: 20px;
+  border-style: solid;
+  font-size: 1.3em;
   height: 50px;
   width: 28%; }
