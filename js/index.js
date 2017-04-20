@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
+app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
