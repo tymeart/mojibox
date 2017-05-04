@@ -1,13 +1,14 @@
 extends base.pug
 
 block content
-  .container
-    .collection
-      div (✿⁠´ ꒳ ` )
-      div (*•̀ᴗ•́*)و ̑̑
-      div (灬ºωº灬)♡
-      div (●˙꒳˙●)
-      div ∑(;°Д°)
-    form
-      input(type="text" name="kaomoji")
-      button Add
+  nav.ui.top.fixed.blue.three.item.inverted.huge.menu
+    .header.item tymeart's MojiBox
+    .right.menu
+      i.minus.icon
+      i.plus.icon
+  .ui.segments.grid.container
+    .ui.center.aligned.segment.eight.wide.column (✿⁠´ ꒳ ` )
+    .ui.center.aligned.segment.eight.wide.column (*•̀ᴗ•́*)و ̑̑
+    .ui.center.aligned.segment.eight.wide.column (灬ºωº灬)♡
+    .ui.center.aligned.segment.eight.wide.column (●˙꒳˙●)
+    .ui.center.aligned.segment.eight.wide.column ∑(;°Д°)
