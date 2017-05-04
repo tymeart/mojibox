@@ -23,7 +23,8 @@ var id = 1;
 
 // '/'
 app.get('/', function(req, res, next) {
-  res.redirect('/collection');
+  res.render('index');
+  // res.redirect('/collection');
 });
 
 // '/collection'
@@ -38,7 +39,7 @@ app.post('/add', function(req, res, next) {
 
 // '/delete'
 app.delete('/collection/:id', function(req, res, next) {
-  
+
 });
 
 app.listen(3000, function() {
