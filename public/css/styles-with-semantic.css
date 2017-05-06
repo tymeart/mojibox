@@ -2,6 +2,7 @@
   box-sizing: border-box; }
 
 body {
+  font-size: 18px;
   margin: 0; }
 
 .ui.grid.container {
