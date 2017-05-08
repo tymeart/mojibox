@@ -1,8 +1,8 @@
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const methodOverride = require('method-override');
-const mongoose = require('mongoose');
+const express = require('express'),
+      app = express(),
+      bodyParser = require('body-parser'),
+      methodOverride = require('method-override'),
+      mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/mojibox');
 app.set('view engine', 'pug');
