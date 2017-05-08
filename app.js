@@ -45,7 +45,13 @@ app.get('/collection', function(req, res, next) {
 
 // '/add'
 app.post('/add', function(req, res, next) {
-  collection.push();
+  Emoticon.create(req.body.emoticon, function(err, newEmoticon) {
+    if (err) {
+      res.render('error');
+    } else {
+      res.redirect('/collection');
+    }
+  });
 });
 
 // '/delete'
