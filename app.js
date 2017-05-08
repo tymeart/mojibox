@@ -21,7 +21,8 @@ if (app.get('env') === 'development') {
 }
 
 const emoticonSchema = new mongoose.Schema({
-  content: String
+  content: String,
+  category: String
 });
 
 const Emoticon = mongoose.model('Emoticon', emoticonSchema);
