@@ -29,13 +29,18 @@ const Emoticon = mongoose.model('Emoticon', emoticonSchema);
 
 // '/'
 app.get('/', function(req, res, next) {
-  res.render('index');
-  // res.redirect('/collection');
+  res.redirect('/collection');
 });
 
 // '/collection'
 app.get('/collection', function(req, res, next) {
-  res.render('show', {collection});
+  Emoticon.find({}, function(err, emoticons) {
+    if (err) {
+      console.log('Error');
+    } else {
+      res.render('index', {emoticons});
+    }
+  });
 });
 
 // '/add'
