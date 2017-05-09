@@ -20,12 +20,6 @@ if (app.get('env') === 'development') {
   });
 }
 
-const emoticonSchema = new mongoose.Schema({
-  content: String,
-  category: String
-});
-
-const Emoticon = mongoose.model('Emoticon', emoticonSchema);
 
 // '/'
 app.get('/', function(req, res, next) {
