@@ -20,13 +20,10 @@ if (app.get('env') === 'development') {
   });
 }
 
-
-// '/'
 app.get('/', function(req, res, next) {
   res.redirect('/collection');
 });
 
-// '/collection'
 app.get('/collection', function(req, res, next) {
   Emoticon.find({}, function(err, emoticons) {
     if (err) {
@@ -37,8 +34,7 @@ app.get('/collection', function(req, res, next) {
   });
 });
 
-// '/add'
-app.post('/add', function(req, res, next) {
+app.post('/collection/add', function(req, res, next) {
   Emoticon.create(req.body.emoticon, function(err, newEmoticon) {
     if (err) {
       res.render('error');
@@ -48,7 +44,6 @@ app.post('/add', function(req, res, next) {
   });
 });
 
-// '/delete'
 app.delete('/collection/:id', function(req, res, next) {
 
 });
