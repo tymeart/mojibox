@@ -14,7 +14,11 @@ const userRoutes = require('./routes/users');
 const emoticonRoutes = require('./routes/emoticons');
 
 app.use('/user', userRoutes);
-app.use('/user/:user_id/', emoticonRoutes);
+// app.use('/user/:user_id/', emoticonRoutes);
+
+app.get('/', function(req, res, next) {
+  res.redirect('/user');
+});
 
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
