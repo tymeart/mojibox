@@ -27,15 +27,21 @@ router.get('/:id/edit', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-
+  db.User.create(req.body).then(function() {
+    res.redirect('/');
+  });
 });
 
 router.patch('/:id', function(req, res, next) {
-
+  db.User.findByIdAndUpdate(req.params.id, req.body.newUsername).then(function() {
+    res.redirect('/:id');
+  });
 });
 
 router.delete('/:id', function(req, res, next) {
-
+  db.User.findByIdAndRemove(req.params.id).then(function() {
+    res.redirect('/');
+  });
 });
 
 module.exports = router;
