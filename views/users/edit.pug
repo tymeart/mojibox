@@ -6,3 +6,6 @@ block content
     p Current username: ${user.username}
     input(type="text" name="newUsername")
     button Update
+
+  form(action=`/user/${user.username}?_method=DELETE` method="POST")
+    button Delete Account
