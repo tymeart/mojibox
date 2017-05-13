@@ -10,12 +10,18 @@ router.get('/new', function(req, res, next) {
   res.render('users/new');
 });
 
-router.get('/:id/edit', function(req, res, next) {
-  db.User.findById(req.params.id).then(function(user) {
-    res.render('users/edit', {user}),
-    function(err) {
-      res.send('Error!');
-    });
+router.get('/:username', function(req, res, next) {
+  // db.User.find({username: req.params.username}).then(function(user) {
+  //   res.render('users/show', {user});
+  // });
+  var user = req.params.username;
+  res.render('users/show', {user});
+});
+
+router.get('/:username/edit', function(req, res, next) {
+  db.User.find({username: req.params.username}).then(function(user) {
+    res.render('users/edit', {user});
+  });
 });
 
 router.post('/', function(req, res, next) {
@@ -24,14 +30,16 @@ router.post('/', function(req, res, next) {
   });
 });
 
-router.patch('/:id', function(req, res, next) {
-  db.User.findByIdAndUpdate(req.params.id, req.body.newUsername).then(function() {
-    res.redirect('/:id');
+// find not by ID and update
+router.patch('/:username', function(req, res, next) {
+  db.User.findByIdAndUpdate(req.params.username, req.body.newUsername).then(function() {
+    res.redirect('/:username');
   });
 });
 
-router.delete('/:id', function(req, res, next) {
-  db.User.findByIdAndRemove(req.params.id).then(function() {
+// find and then remove
+router.delete('/:username', function(req, res, next) {
+  db.User.findByIdAndRemove(req.params.username).then(function() {
     res.redirect('/');
   });
 });
