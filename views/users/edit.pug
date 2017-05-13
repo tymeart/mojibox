@@ -2,10 +2,10 @@ extends ../base.pug
 
 block content
   h1 Edit profile
-  form(action=`/user/${user.username}?_method=PATCH` method="POST")
-    p Current username: ${user.username}
+  form(action=`/user/${user}?_method=PATCH` method="POST")
+    p Current username: ${user}
     input(type="text" name="newUsername")
     button Update
 
-  form(action=`/user/${user.username}?_method=DELETE` method="POST")
+  form(action=`/user/${user}?_method=DELETE` method="POST")
     button Delete Account
