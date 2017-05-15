@@ -3,9 +3,9 @@ extends ../base.pug
 block content
   h1 Edit profile
   form(action=`/user/${user}?_method=PATCH` method="POST")
-    p Current username: ${user}
+    p Current username: #{user}
     input(type="text" name="newUsername")
-    button Update
+    button Update Username
 
   form(action=`/user/${user}?_method=DELETE` method="POST")
     button Delete Account
