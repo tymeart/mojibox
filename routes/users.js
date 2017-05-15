@@ -11,11 +11,9 @@ router.get('/new', function(req, res, next) {
 });
 
 router.get('/:username', function(req, res, next) {
-  // db.User.find({username: req.params.username}).then(function(user) {
-  //   res.render('users/show', {user});
-  // });
-  var user = req.params.username;
-  res.render('users/show', {user});
+  db.User.find({username: req.params.username}).then(function(user) {
+    res.render('users/show', {user});
+  });
 });
 
 router.get('/:username/edit', function(req, res, next) {
