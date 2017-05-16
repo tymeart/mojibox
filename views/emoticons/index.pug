@@ -1,11 +1,11 @@
-extends base.pug
+extends ../base.pug
 
 block content
   nav.ui.top.fixed.blue.three.item.inverted.huge.menu
     .item tymeart's MojiBox
-    .item
+    .item.right
       a(href="#") Add
       a(href="#") Delete
   .ui.grid.container
     each emoticon in emoticons
-      .ui.center.aligned.eight.wide.column #{emoticon}
+      .ui.center.aligned.eight.wide.column #{emoticon.content}
