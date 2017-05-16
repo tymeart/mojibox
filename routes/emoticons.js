@@ -10,14 +10,8 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/collection', function(req, res, next) {
-  Emoticon.find({}, function(err, emoticons) {
-    if (err) {
-      console.log('Error');
-    } else {
-      res.render('index', {emoticons});
-    }
-  });
+router.get('/new', function(req, res, next) {
+  res.render('emoticons/new', {user: req.params.username});
 });
 
 router.post('/collection/add', function(req, res, next) {
