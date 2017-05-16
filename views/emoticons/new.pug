@@ -1,0 +1,8 @@
+extends ../base.pug
+
+block content
+  form(action="/collection/new" method="POST")
+    label(for="content") Emoticon
+    input(type="text" name="content")
+    label(for="category") Category
+    input(type="text" name="category")
