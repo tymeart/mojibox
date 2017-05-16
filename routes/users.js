@@ -3,7 +3,7 @@ const express = require('express'),
       db = require('../models');
 
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('users/index');
 });
 
 router.get('/new', function(req, res, next) {
