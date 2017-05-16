@@ -3,7 +3,11 @@ const express = require('express'),
       db = require('../models');
 
 router.get('/', function(req, res, next) {
-  res.redirect('/collection');
+  db.Emoticon.find({}).then(function(emoticons) {
+      res.render('emoticons/index', {emoticons});
+  }).catch(function(err) {
+      console.log(err);
+  });
 });
 
 router.get('/collection', function(req, res, next) {
