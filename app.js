@@ -14,7 +14,7 @@ const userRoutes = require('./routes/users');
 const emoticonRoutes = require('./routes/emoticons');
 
 app.use('/user', userRoutes);
-// app.use('/user/:user_id/', emoticonRoutes);
+app.use('/user/:username/collection', emoticonRoutes);
 
 app.get('/', function(req, res, next) {
   res.redirect('/user');
