@@ -14,13 +14,14 @@ router.get('/new', function(req, res, next) {
   res.render('emoticons/new', {user: req.params.username});
 });
 
-router.post('/collection/add', function(req, res, next) {
-  Emoticon.create(req.body.emoticon, function(err, newEmoticon) {
-    if (err) {
-      res.render('error');
-    } else {
-      res.redirect('/collection');
-    }
+router.post('/new', function(req, res, next) {
+  db.User.findOne({username: req.params.username}).then(function(user) {
+    db.Emoticon.create({content: req.body.content, category: req.body.category, user: user._id}).then(function(newEmoticon) {
+      user.emoticons.push(newEmoticon);
+      res.redirect(`/user/${user.username}/collection`);
+    }).catch(function(err) {
+      console.log(err);
+    });
   });
 });
 
