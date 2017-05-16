@@ -25,7 +25,7 @@ router.post('/new', function(req, res, next) {
   });
 });
 
-router.delete('/collection/:id', function(req, res, next) {
+router.delete('/:id', function(req, res, next) {
 
 });
 
