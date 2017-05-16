@@ -30,9 +30,8 @@ router.post('/', function(req, res, next) {
 
 // find not by ID and update
 router.patch('/:username', function(req, res, next) {
-  db.User.findOne({username: req.params.username}).then(function(user) {
-    user.username = req.body.newUsername;
-    res.redirect('/:username');
+  db.User.findOneAndUpdate({username: req.params.username}, {username: req.body.newUsername}).then(function(user) {
+    res.redirect('/');
   });
 });
 
