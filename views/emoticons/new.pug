@@ -1,9 +1,12 @@
 extends ../base.pug
 
 block content
-  form(action=`/user/${user}/collection/new` method="POST")
-    label(for="content") Emoticon
-    input(type="text" name="content")
-    label(for="category") Category
-    input(type="text" name="category")
-    button Add
+  .ui.segment.container
+    form.ui.form(action=`/user/${user}/collection/new` method="POST")
+      .six.wide.field
+        label(for="content") Emoticon
+        input(type="text" id="content" name="content")
+      .six.wide.field
+        label(for="category") Category
+        input(type="text" id="category" name="category")
+      button.ui.button Add
