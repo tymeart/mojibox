@@ -1,11 +1,12 @@
 extends ../base.pug
 
 block content
-  nav.ui.top.fixed.blue.three.item.inverted.huge.menu
-    .item tymeart's MojiBox
-    .item.right
-      a(href="#") Add
-      a(href="#") Delete
-  .ui.grid.container
-    each emoticon in emoticons
-      .ui.center.aligned.eight.wide.column #{emoticon.content}
+  .ui.center.aligned.container
+    nav.ui.compact.top.fixed.blue.inverted.huge.menu
+        a.item(href="#") tymeart's MojiBox
+        .right.menu
+          a.item(href="#") Add
+          a.item(href="#") Select
+    .ui.grid.container
+      each emoticon in emoticons
+        .ui.center.aligned.eight.wide.column #{emoticon.content}
