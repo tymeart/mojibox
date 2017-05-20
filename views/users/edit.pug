@@ -1,11 +1,12 @@
 extends ../base.pug
 
 block content
-  h1 Edit profile
-  form(action=`/user/${user.username}?_method=PATCH` method="POST")
-    p Current username: #{user.username}
-    input(type="text" name="newUsername")
-    button Update Username
-
-  form(action=`/user/${user.username}?_method=DELETE` method="POST")
-    button Delete Account
+  .ui.container
+    h1.ui.header Edit profile
+    div
+      form(action=`/user/${user.username}?_method=PATCH` method="POST")
+        p Current username: #{user.username}
+        input(type="text" name="newUsername")
+        button.ui.primary.button Update Username
+      form(action=`/user/${user.username}?_method=DELETE` method="POST")
+        button.ui.negative.basic.button Delete Account

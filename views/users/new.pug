@@ -1,9 +1,11 @@
 extends ../base.pug
 
 block content
-  form(action="/user" method="POST")
-    label(for="username") Username
-    input(type="text" name="username")
-    label(for="password") Password
-    input(type="password" name="password")
-    button Create
+  .ui.container
+    h1.ui.header Create an account
+    form(action="/user" method="POST")
+      label(for="username") Username
+      input(type="text" name="username")
+      label(for="password") Password
+      input(type="password" name="password")
+      button.ui.primary.button Create
