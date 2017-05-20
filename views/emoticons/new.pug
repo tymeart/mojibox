@@ -4,10 +4,10 @@ block content
   .ui.container
     h1.ui.header Add to your collection
     form.ui.form(action=`/user/${user}/collection/new` method="POST")
-      .field
+      .four.wide.field
         label(for="content") Emoticon
         input(type="text" id="content" name="content")
-      .field
+      .four.wide.field
         label(for="category") Category
         input(type="text" id="category" name="category")
       button.ui.primary.button Add
