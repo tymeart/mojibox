@@ -6,9 +6,9 @@ body {
   margin: 0; }
 
 .ui.container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   margin-top: 80px; }
 
 .emoticons.ui.grid.container {
