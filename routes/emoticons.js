@@ -3,10 +3,11 @@ const express = require('express'),
       db = require('../models');
 
 router.get('/', function(req, res, next) {
-  db.Emoticon.find({}).then(function(emoticons) {
-      res.render('emoticons/index', {emoticons});
-  }).catch(function(err) {
+  db.User.findOne({username: req.params.username}).populate('emoticons').exec(function(err, user) {
+    if (err) {
       console.log(err);
+    }
+    res.render('emoticons/index', {emoticons: user.emoticons});
   });
 });
 
