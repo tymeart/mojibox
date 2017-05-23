@@ -5,7 +5,7 @@ const express = require('express'),
 router.get('/', function(req, res, next) {
   db.User.findOne({username: req.params.username}).populate('emoticons').exec(function(err, user) {
     if (err) console.log(err);
-    res.render('emoticons/index', {emoticons: user.emoticons});
+    res.render('emoticons/index', {user, emoticons: user.emoticons});
   });
 });
 
