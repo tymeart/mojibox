@@ -11,9 +11,16 @@ body {
   flex-direction: column;
   margin-top: 80px; }
 
-.emoticons.ui.grid.container {
+#emoticons.ui.grid.container {
   flex-direction: row;
   margin-top: 40px; }
 
+.emoticon:hover {
+  cursor: pointer;
+  background-color: lightblue; }
+
 p a:hover {
   cursor: pointer; }
+
+.selected {
+  background-color: tomato; }

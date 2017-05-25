@@ -19,6 +19,15 @@ body {
   margin-top: 40px;
 }
 
+.emoticon:hover {
+  cursor: pointer;
+  background-color: lightblue;
+}
+
 p a:hover {
   cursor: pointer;
+}
+
+.selected {
+  background-color: tomato;
 }
