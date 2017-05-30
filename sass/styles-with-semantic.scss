@@ -30,3 +30,13 @@ p a:hover {
 .selected {
   background-color: tomato;
 }
+
+.ui.button#delete {
+  margin-top: 200px;
+}
+
+.hide {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
