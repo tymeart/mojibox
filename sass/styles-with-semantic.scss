@@ -11,12 +11,11 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 80px;
+  padding-top: 70px;
 }
 
 #emoticons.ui.grid.container {
   flex-direction: row;
-  margin-top: 40px;
 }
 
 .emoticon:hover {
