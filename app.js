@@ -15,7 +15,7 @@ app.use(methodOverride('_method'));
 
 // PASSPORT CONFIGURATION
 app.use(require('express-session')({
-  secret: 'Spike is so cute',
+  secret: 'what is this for',
   resave: false,
   saveUninitialized: false
 }));
