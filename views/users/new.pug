@@ -6,8 +6,8 @@ block content
     form.ui.form(action="/user" method="POST")
       .field
         label(for="username") Username
-        input(type="text" name="username")
+        input(type="text" id="username" name="username")
       .field
         label(for="password") Password
-        input(type="password" name="password")
+        input(type="password" id="password" name="password")
       button.ui.primary.button Create
