@@ -2,13 +2,28 @@ const express = require('express'),
       app = express(),
       bodyParser = require('body-parser'),
       methodOverride = require('method-override'),
-      mongoose = require('mongoose');
+      mongoose = require('mongoose'),
+      passport = require('passport'),
+      LocalStrategy = require('passport-local'),
+      User = require('./models/user');
 
 mongoose.connect('mongodb://localhost/mojibox');
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
+
+// PASSPORT CONFIGURATION
+app.use(require('express-session')({
+  secret: 'Spike is so cute',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 const userRoutes = require('./routes/users');
 const emoticonRoutes = require('./routes/emoticons');
