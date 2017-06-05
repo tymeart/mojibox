@@ -12,7 +12,7 @@ router.get('/new', function(req, res, next) {
 });
 
 router.get('/:username', function(req, res, next) {
-  db.User.findOne({username: req.params.username}).then(function(user) {
+  User.findOne({username: req.params.username}).then(function(user) {
     res.render('users/show', {user});
   }).catch(function(err) {
     console.log(err);
@@ -20,7 +20,7 @@ router.get('/:username', function(req, res, next) {
 });
 
 router.get('/:username/edit', function(req, res, next) {
-  db.User.findOne({username: req.params.username}).then(function(user) {
+  User.findOne({username: req.params.username}).then(function(user) {
     res.render('users/edit', {user});
   }).catch(function(err) {
     console.log(err);
