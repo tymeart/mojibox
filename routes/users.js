@@ -1,6 +1,7 @@
 const express = require('express'),
       router = express.Router(),
-      db = require('../models');
+      passport = require('passport'),
+      User = require('../models/user');
 
 router.get('/', function(req, res, next) {
   res.render('users/index');
@@ -27,10 +28,15 @@ router.get('/:username/edit', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  db.User.create(req.body).then(function() {
-    res.redirect('/');
-  }).catch(function(err) {
-    console.log(err);
+  var newUser = new User({username: req.body.username});
+  User.register(newUser, req.body.password, function(err, user) {
+    if (err) {
+      console.log(err);
+      return res.render('users/new');
+    }
+    passport.authenticate('local')(req, res, function() {
+      res.redirect('/user/');
+    });
   });
 });
 
