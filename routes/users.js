@@ -28,6 +28,12 @@ router.get('/login', function(req, res, next) {
   res.render('users/login');
 });
 
+router.post('/login', passport.authenticate('local',
+  {
+    successRedirect: '/',
+    failureRedirect: '/user/login'
+  }));
+
 router.get('/:username', function(req, res, next) {
   User.findOne({username: req.params.username}).then(function(user) {
     res.render('users/show', {user});
