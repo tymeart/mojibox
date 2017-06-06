@@ -3,10 +3,12 @@ const express = require('express'),
       passport = require('passport'),
       User = require('../models/user');
 
+// index
 router.get('/', function(req, res, next) {
   res.render('users/index');
 });
 
+// sign up
 router.get('/new', function(req, res, next) {
   res.render('users/new');
 });
@@ -24,6 +26,7 @@ router.post('/', function(req, res, next) {
   });
 });
 
+// log in
 router.get('/login', function(req, res, next) {
   res.render('users/login');
 });
@@ -35,11 +38,13 @@ router.post('/login', passport.authenticate('local',
   })
 );
 
+// log out
 router.get('/logout', function(req, res, next) {
   req.logout();
   res.redirect('/');
 });
 
+// user show page
 router.get('/:username', function(req, res, next) {
   User.findOne({username: req.params.username}).then(function(user) {
     res.render('users/show', {user});
