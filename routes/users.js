@@ -32,7 +32,13 @@ router.post('/login', passport.authenticate('local',
   {
     successRedirect: '/',
     failureRedirect: '/user/login'
-  }));
+  })
+);
+
+router.get('/logout', function(req, res, next) {
+  req.logout();
+  res.redirect('/');
+});
 
 router.get('/:username', function(req, res, next) {
   User.findOne({username: req.params.username}).then(function(user) {
