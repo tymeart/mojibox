@@ -50,7 +50,7 @@ router.get('/:username/edit', function(req, res, next) {
   });
 });
 
-router.patch('/:username', function(req, res, next) {
+router.patch('/:username', isLoggedIn, function(req, res, next) {
   db.User.findOneAndUpdate({username: req.params.username}, {username: req.body.newUsername}).then(function(user) {
     res.redirect('/');
   }).catch(function(err) {
@@ -58,12 +58,19 @@ router.patch('/:username', function(req, res, next) {
   });
 });
 
-router.delete('/:username', function(req, res, next) {
+router.delete('/:username', isLoggedIn, function(req, res, next) {
   db.User.findOneAndRemove({username: req.params.username}).then(function() {
     res.redirect('/');
   }).catch(function(err) {
     console.log(err);
   });
 });
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('user/login');
+}
 
 module.exports = router;
