@@ -53,7 +53,7 @@ router.get('/:username', function(req, res, next) {
   });
 });
 
-router.get('/:username/edit', function(req, res, next) {
+router.get('/:username/edit', isLoggedIn, function(req, res, next) {
   User.findOne({username: req.params.username}).then(function(user) {
     res.render('users/edit', {user});
   }).catch(function(err) {
