@@ -11,6 +11,19 @@ router.get('/new', function(req, res, next) {
   res.render('users/new');
 });
 
+router.post('/', function(req, res, next) {
+  var newUser = new User({username: req.body.username});
+  User.register(newUser, req.body.password, function(err, user) {
+    if (err) {
+      console.log(err);
+      return res.render('users/new');
+    }
+    passport.authenticate('local')(req, res, function() {
+      res.redirect('/user/');
+    });
+  });
+});
+
 router.get('/login', function(req, res, next) {
   res.render('users/login');
 });
@@ -31,20 +44,6 @@ router.get('/:username/edit', function(req, res, next) {
   });
 });
 
-router.post('/', function(req, res, next) {
-  var newUser = new User({username: req.body.username});
-  User.register(newUser, req.body.password, function(err, user) {
-    if (err) {
-      console.log(err);
-      return res.render('users/new');
-    }
-    passport.authenticate('local')(req, res, function() {
-      res.redirect('/user/');
-    });
-  });
-});
-
-// find not by ID and update
 router.patch('/:username', function(req, res, next) {
   db.User.findOneAndUpdate({username: req.params.username}, {username: req.body.newUsername}).then(function(user) {
     res.redirect('/');
@@ -53,7 +52,6 @@ router.patch('/:username', function(req, res, next) {
   });
 });
 
-// find and then remove
 router.delete('/:username', function(req, res, next) {
   db.User.findOneAndRemove({username: req.params.username}).then(function() {
     res.redirect('/');
