@@ -8,8 +8,11 @@ html(lang="en")
     title MojiBox
   body
     nav.ui.compact.top.fixed.blue.inverted.huge.menu
-        a.item tymeart's MojiBox
+        a.item MojiBox
         .right.menu
           a.item(href='#') Add
           a.item#selectModeToggle Select
+          a.item(href='/user/login') Log in
+          a.item(href='/user/new') Sign up
+          a.item(href='/user/logout') Log out
     block content
