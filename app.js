@@ -30,9 +30,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-const userRoutes = require('./routes/users');
-const emoticonRoutes = require('./routes/emoticons');
+const userRoutes = require('./routes/users'),
+      emoticonRoutes = require('./routes/emoticons'),
+      indexRoutes = require('./routes/index');
 
+app.use('/user', indexRoutes);
 app.use('/user', userRoutes);
 app.use('/user/:username/collection', emoticonRoutes);
 
