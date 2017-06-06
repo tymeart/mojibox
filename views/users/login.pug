@@ -1,0 +1,13 @@
+extends ../base.pug
+
+block content
+  .ui.container
+    h1.ui.header Log in
+    form.ui.form(action="/user/login" method="POST")
+      .field
+        label(for="username") Username
+        input(type="text" id="username" name="username")
+      .field
+        label(for="password") Password
+        input(type="password" id="password" name="password")
+      button.ui.primary.button Log in
