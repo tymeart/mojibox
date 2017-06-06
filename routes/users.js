@@ -8,42 +8,6 @@ router.get('/', function(req, res, next) {
   res.render('users/index');
 });
 
-// sign up
-router.get('/new', function(req, res, next) {
-  res.render('users/new');
-});
-
-router.post('/', function(req, res, next) {
-  var newUser = new User({username: req.body.username});
-  User.register(newUser, req.body.password, function(err, user) {
-    if (err) {
-      console.log(err);
-      return res.render('users/new');
-    }
-    passport.authenticate('local')(req, res, function() {
-      res.redirect('/user/');
-    });
-  });
-});
-
-// log in
-router.get('/login', function(req, res, next) {
-  res.render('users/login');
-});
-
-router.post('/login', passport.authenticate('local',
-  {
-    successRedirect: '/',
-    failureRedirect: '/user/login'
-  })
-);
-
-// log out
-router.get('/logout', function(req, res, next) {
-  req.logout();
-  res.redirect('/');
-});
-
 // user show page
 router.get('/:username', function(req, res, next) {
   User.findOne({username: req.params.username}).then(function(user) {
@@ -76,12 +40,5 @@ router.delete('/:username', isLoggedIn, function(req, res, next) {
     console.log(err);
   });
 });
-
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/user/login');
-}
 
 module.exports = router;
