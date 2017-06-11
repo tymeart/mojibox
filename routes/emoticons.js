@@ -4,18 +4,18 @@ const express = require('express'),
       Emoticon = require('../models/emoticon');
 
 router.get('/', function(req, res, next) {
-  User.findOne({username: req.params.username}).populate('emoticons').exec(function(err, user) {
+  User.findOne({username: currentUser.username}).populate('emoticons').exec(function(err, user) {
     if (err) console.log(err);
     res.render('emoticons/index', {user, emoticons: user.emoticons});
   });
 });
 
-router.get('/new', function(req, res, next) {
-  res.render('emoticons/new', {user: req.params.username});
+router.get('/new', isLoggedIn, function(req, res, next) {
+  res.render('emoticons/new', {user: currentUser});
 });
 
-router.post('/new', function(req, res, next) {
-  User.findOne({username: req.params.username}).then(function(user) {
+router.post('/new', isLoggedIn, function(req, res, next) {
+  User.findOne({username: currentUser.username}).then(function(user) {
     Emoticon.create({content: req.body.content, category: req.body.category, user: user._id}).then(function(newEmoticon) {
       user.emoticons.push(newEmoticon);
       user.markModified('emoticons');
