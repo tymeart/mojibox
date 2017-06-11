@@ -3,7 +3,7 @@ const express = require('express'),
       passport = require('passport'),
       User = require('../models/user');
 
-app.get('/', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.redirect('/user');
 });
 
