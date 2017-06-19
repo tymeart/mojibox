@@ -11,11 +11,11 @@ html(lang="en")
         a.item MojiBox
         .right.menu
           if !currentUser
-            a.item(href='/user/login') Log in
-            a.item(href='/user/new') Sign up
+            a.item(href='/login') Log in
+            a.item(href='/new') Sign up
           else
             a.item Logged in as: #{currentUser.username}
             a.item(href='#') Add
             a.item#selectModeToggle Select
-            a.item(href='/user/logout') Log out
+            a.item(href='/logout') Log out
     block content
