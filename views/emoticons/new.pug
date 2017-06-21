@@ -3,7 +3,7 @@ extends ../base.pug
 block content
   .ui.container
     h1.ui.header Add to your collection
-    form.ui.form(action=`/user/${user}/collection/new` method="POST")
+    form.ui.form(action=`/user/${user.username}/collection/new` method="POST")
       .field
         label(for="content") Emoticon
         input(type="text" id="content" name="content")
