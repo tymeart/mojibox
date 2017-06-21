@@ -7,6 +7,7 @@ const express = require('express'),
       LocalStrategy = require('passport-local'),
       User = require('./models/user');
 
+mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/mojibox');
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
