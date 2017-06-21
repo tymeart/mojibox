@@ -15,7 +15,7 @@ html(lang="en")
             a.item(href='/new') Sign up
           else
             a.item Logged in as: #{currentUser.username}
-            a.item(href='#') Add
+            a.item(href=`/user/${currentUser.username}/collection/new`) Add
             a.item#selectModeToggle Select
             a.item(href='/logout') Log out
     block content
