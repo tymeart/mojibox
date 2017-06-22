@@ -5,6 +5,7 @@ block content
     #emoticons.ui.grid.container
       each emoticon in emoticons
         .emoticon.ui.center.aligned.eight.wide.column #{emoticon.content}
-    form.ui.form(action="/delete?_method=DELETE" method="POST")
+    form.ui.form(action=`/user/${user.username}/collection/delete?_method=DELETE` method="POST")
       button#delete.ui.basic.negative.button.hide Delete
+  script(src="https://unpkg.com/axios/dist/axios.min.js")
   script(src="/js/select.js")

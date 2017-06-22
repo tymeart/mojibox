@@ -30,8 +30,11 @@ router.post('/new', isLoggedIn, function(req, res, next) {
   });
 });
 
-router.delete('/:id', function(req, res, next) {
-
+router.delete('/delete', isLoggedIn, function(req, res, next) {
+  console.log(req.body.selected);
+  // remove from emoticons collection
+  // Emoticons.remove({content: {$in: selected}});
+  // splice out of user emoticons array
 });
 
 function isLoggedIn(req, res, next) {

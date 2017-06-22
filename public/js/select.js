@@ -31,3 +31,7 @@ selectModeToggle.addEventListener('click', function() {
     });
   }
 });
+
+axios.delete(`/user/${user.username}/collection/delete`, {
+  params: {selected}
+});
