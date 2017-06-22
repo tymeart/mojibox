@@ -35,6 +35,7 @@ router.post('/login', passport.authenticate('local',
   {
     failureRedirect: '/login'
   }), (req, res) => {
+    // res.locals.currentUser = req.user;
     res.redirect(`/user/${req.user.username}/collection`);
   }
 );
