@@ -3,11 +3,6 @@ const express = require('express'),
       passport = require('passport'),
       User = require('../models/user');
 
-// index
-router.get('/', function(req, res, next) {
-  res.render('users/index');
-});
-
 // user show page
 router.get('/:username', function(req, res, next) {
   User.findOne({username: req.params.username}).then(function(user) {
@@ -45,7 +40,7 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
-  res.redirect('/user/login');
+  res.redirect('/login');
 }
 
 module.exports = router;

@@ -4,7 +4,7 @@ const express = require('express'),
       User = require('../models/user');
 
 router.get('/', function(req, res, next) {
-  res.redirect('/user');
+  res.render('splash');
 });
 
 // AUTH ROUTES
@@ -21,7 +21,7 @@ router.post('/', function(req, res, next) {
       return res.render('users/new');
     }
     passport.authenticate('local')(req, res, function() {
-      res.redirect('/user/');
+      res.redirect('/');
     });
   });
 });
