@@ -6,6 +6,12 @@ block content
       each emoticon in emoticons
         .emoticon.ui.center.aligned.eight.wide.column #{emoticon.content}
     form.ui.form(action=`/user/${user.username}/collection/delete?_method=DELETE` method="POST")
-      button#delete.ui.basic.negative.button.hide Delete
+      button#delete.ui.basic.negative.button.hide(onClick='deleteReq()') Delete
   script(src="https://unpkg.com/axios/dist/axios.min.js")
   script(src="/js/select.js")
+  script.
+    function deleteReq() {
+      axios.delete(`/user/${user.username}/collection/delete`, {
+        params: {selectedArr: selected}
+      });
+    }

@@ -1,3 +1,4 @@
+var user = user;
 var selectMode = false;
 var selected = [];
 var selectModeToggle = document.getElementById('selectModeToggle');
@@ -32,6 +33,8 @@ selectModeToggle.addEventListener('click', function() {
   }
 });
 
-axios.delete(`/user/${user.username}/collection/delete`, {
-  params: {selected}
-});
+function deleteReq() {
+  axios.delete('/user/' + user.username + '/collection/delete', {
+    params: {selectedArr: selected}
+  });
+}
