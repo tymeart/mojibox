@@ -10,8 +10,9 @@ block content
   script(src="https://unpkg.com/axios/dist/axios.min.js")
   script(src="/js/select.js")
   script.
+    var user = !{JSON.stringify(user)};
     function deleteReq() {
-      axios.delete(`/user/${user.username}/collection/delete`, {
-        params: {selectedArr: selected}
+      axios.post(`/user/${user.username}/collection/delete`, {
+        data: {selectedArr: selected}
       });
     }

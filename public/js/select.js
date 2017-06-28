@@ -32,9 +32,3 @@ selectModeToggle.addEventListener('click', function() {
     });
   }
 });
-
-function deleteReq() {
-  axios.delete('/user/' + user.username + '/collection/delete', {
-    params: {selectedArr: selected}
-  });
-}

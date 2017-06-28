@@ -30,8 +30,8 @@ router.post('/new', isLoggedIn, function(req, res, next) {
   });
 });
 
-router.delete('/delete', isLoggedIn, function(req, res, next) {
-  console.log(req.body.selected);
+router.post('/delete', isLoggedIn, function(req, res, next) {
+  console.log(req.body.data.selectedArr);
   // remove from emoticons collection
   // Emoticons.remove({content: {$in: selected}});
   // splice out of user emoticons array
