@@ -27,7 +27,7 @@ selectModeToggle.addEventListener('click', function() {
       if (event.target.matches('.emoticon')) {
         event.stopPropagation();
         event.target.classList.toggle('selected');
-        toggleSelectedArrItems(event.target.innerHTML);
+        toggleSelectedArrItems(event.target.id);
       }
     });
   }
