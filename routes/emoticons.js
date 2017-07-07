@@ -33,21 +33,20 @@ router.post('/new', isLoggedIn, function(req, res, next) {
 router.post('/delete', isLoggedIn, function(req, res, next) {
   var removeArr = req.body.data.selectedArr;
   var user = req.user;
-  Emoticons.find({user}).remove({_id: {$in: removeArr}}, (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(`Successfully removed ${removeArr} from DB`);
-    }
-  });
-  removeArr.forEach(function(id) {
-    var index = user.emoticons.indexOf(id);
-    if (index > -1) {
-      user.emoticons.splice(index, 1);
-    } else {
-      console.log(`ID ${id} not found`);
-    }
-  });
+
+  Promise.all(
+    removeArr.map(id => {
+      return Emoticon.findOneAndRemove({_id: id});
+    }))
+    .then(results => {
+      removeArr.forEach(id => {
+        var index = user.emoticons.indexOf(id);
+        if (index > -1) {
+          user.emoticons.splice(index, 1);
+        }
+      });
+    })
+    .catch(err => { console.log(err)});
 });
 
 function isLoggedIn(req, res, next) {
