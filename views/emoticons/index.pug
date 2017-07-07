@@ -13,6 +13,6 @@ block content
     var user = !{JSON.stringify(user)};
     function deleteReq() {
       axios.post(`/user/${user.username}/collection/delete`, {
-        data: {selectedArr: selected}
+        selectedArr: selected
       });
     }

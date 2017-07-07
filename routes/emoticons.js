@@ -31,7 +31,7 @@ router.post('/new', isLoggedIn, function(req, res, next) {
 });
 
 router.post('/delete', isLoggedIn, function(req, res, next) {
-  var removeArr = req.body.data.selectedArr;
+  var removeArr = req.body.selectedArr;
   var user = req.user;
 
   Promise.all(
