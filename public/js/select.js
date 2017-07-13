@@ -15,14 +15,14 @@ function toggleSelectedArrItems(emoticon) {
 }
 
 selectModeToggle.addEventListener('click', function() {
-  if (selectMode) {
+  if (selectMode === true) {
     selectMode = false;
-    // change style of select link to indicate select mode is OFF somehow
     deleteButton.classList.add('hide');
-  } else {
+    // select mode OFF
+  } else if (selectMode === false){
     selectMode = true;
-    // change style of select link to indicate select mode is ON somehow
     deleteButton.classList.remove('hide');
+    // select mode ON
     emoticonsContainer.addEventListener('click', function(event) {
       if (event.target.matches('.emoticon')) {
         event.stopPropagation();
@@ -32,3 +32,26 @@ selectModeToggle.addEventListener('click', function() {
     });
   }
 });
+
+// toggleSelectedArrItems outside of click handler??
+// iterate through the emoticons with selected class
+// document.getElementsByClassName('selected')
+// pass ids into toggleSelectedArrItems
+
+// selectModeToggle.addEventListener('click', function() {
+//   if (selectMode) {
+//     selectMode = false;
+//     deleteButton.classList.add('hide');
+//   } else {
+//     selectMode = true;
+//     deleteButton.classList.remove('hide');
+//     // toggle emoticons in/out of selected array
+//     emoticonsContainer.addEventListener('click', function(event) {
+//       if (event.target.matches('.emoticon')) {
+//         event.stopPropagation();
+//         event.target.classList.toggle('selected');
+//         toggleSelectedArrItems(event.target.id);
+//       }
+//     });
+//   }
+// });
