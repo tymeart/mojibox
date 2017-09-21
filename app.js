@@ -8,7 +8,9 @@ const express = require('express'),
       User = require('./models/user');
 
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/mojibox');
+const dburl = process.env.DATABASE_URL || 'mongodb://localhost/mojibox';
+mongoose.connect(dburl);
+
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
