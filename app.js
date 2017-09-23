@@ -8,6 +8,7 @@ const express = require('express'),
       User = require('./models/user');
 
 mongoose.Promise = require('bluebird');
+
 const dburl = process.env.DATABASE_URL || 'mongodb://localhost/mojibox';
 mongoose.connect(dburl);
 
@@ -52,6 +53,6 @@ if (app.get('env') === 'development') {
   });
 }
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log('Server is listening on port 3000');
 });
