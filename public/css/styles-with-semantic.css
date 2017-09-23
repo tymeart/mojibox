@@ -15,8 +15,7 @@ body {
   flex-direction: row; }
 
 .emoticon:hover {
-  cursor: pointer;
-  background-color: lightblue; }
+  cursor: pointer; }
 
 p a:hover {
   cursor: pointer; }
