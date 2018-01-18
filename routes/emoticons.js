@@ -16,7 +16,7 @@ router.get('/new', isLoggedIn, function(req, res, next) {
 
 router.post('/new', isLoggedIn, function(req, res, next) {
   User.findOne({username: req.user.username}).then(function(user) {
-    Emoticon.create({content: req.body.content, category: req.body.category, user: user._id}).then(function(newEmoticon) {
+    Emoticon.create({content: req.sanitize(req.body.content), category: req.sanitize(req.body.category), user: user._id}).then(function(newEmoticon) {
       user.emoticons.push(newEmoticon);
       user.markModified('emoticons');
       user.save(function(err) {

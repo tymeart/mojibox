@@ -14,8 +14,8 @@ router.get('/new', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  var newUser = new User({username: req.body.username});
-  User.register(newUser, req.body.password, function(err, user) {
+  var newUser = new User({username: req.sanitize(req.body.username)});
+  User.register(newUser, req.sanitize(req.body.password), function(err, user) {
     if (err) {
       console.log(err);
       return res.render('users/new');
